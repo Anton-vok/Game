@@ -2,9 +2,9 @@ import kotlin.random.Random
 class forCor(maX:Int,maY:Int){
     var maxX=maX
     var maxY=maY
-    var a=MutableList(maX){MutableList(maY){"."} }
-    var startX=Random.nextInt(0, maxX)
-    var startY=Random.nextInt(0, maxY)
+    var a=MutableList(maX){MutableList(maY){" "} }
+    var startX=Random.nextInt((maxX*4/10), (maxX*6/10))
+    var startY=Random.nextInt((maxY*4/10), (maxY*6/10))
 }
 fun updateArray(a: forCor): forCor {
     var s = Random.nextInt(1, 5)
@@ -25,11 +25,18 @@ fun createMap(maxX:Int,maxY:Int,forInt:Int):MutableList<MutableList<String>>{
     return a.a
 }
 fun main(){
-    for (i in 0..15) {
-        var a=createMap(12,12,50)
+    for (h in 0..30) {
+        var a=createMap(25,25,700)
         for (i in a) {
-            println(i)
+            print("|")
+            for (e in i){
+                print("${e}  ")
+            }
+            println("|")
         }
-        println("--------------")
+        for (i in 0..25){
+            print("---")
+        }
+        println()
     }
 }
